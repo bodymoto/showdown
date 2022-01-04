@@ -7,46 +7,62 @@ def askforusername():
     return username
 
 
-def askforkeyphrase():
-    keyphrase = input('Please enter passphrase: ')
-    return keyphrase
+def askforpassword():
+    password = input('Please enter passphrase: ')
+    return password
 
 
 # ask for device
-def askfordevice():
-    device = input('Please enter device: ')
-    return device
+def askforhostname():
+    hostname = input('Please enter host name: ')
+    return hostname
 
 
-# username = askforusername
-# keyphrase = askforkeyphrase
-device = askfordevice()
+def sshconnect(**device):
+    # make a connection
+    connectdevice = ConnectHandler(**device)
+    return connectdevice
 
-# list of commands
-commands = ['show ap sum',
-            'show ver',]
 
-# make a connection
-def connectdevice(device, commands):
-    # ssh
-    # provide creds
-    # create file
-    # run commands
-    # write commands
-    # close file
-    # close ssh
-
-    ssh = ConnectHandler(device)
-    # make a directory - os.mkdir()? to upload multiple files?
-    with open('{}'.format(device), 'w') as newfile:
+def runcommands(commands, connectdevice):
+    with open('{}'.format(host), 'w') as newfile:
         for command in commands:
-            result = ssh.send_command(commands)
+            result = connectdevice.send_command(command)
             newfile.write(result)
     newfile.close()
-    ssh.disconnect()
 
 
-# store data
-# close connection
+def sshdisconnect(connectdevice):
+    disconnectdevice = connectdevice.disconnect()
+    return disconnectdevice
+
+
+commands = [
+    'show ssh',
+    'show ver',
+]
+
+
+username = askforusername()
+password = askforpassword()
+host = askforhostname()
+
+
+device = {
+    'device_type': 'cisco_ios',  # use device type 'juniper' for juniper equipment
+    'host': host,
+    'username': username,
+    'password': password,
+    # 'port': defaults to port '22' but may be specified
+}
+
+
+connectdevice = sshconnect(**device)
+runcommands(commands, connectdevice)
+disconnectdevice = sshdisconnect(connectdevice)
+
+
+# make a directory - os.mkdir()? to upload multiple files?
+# learn/apply encryption for the file? use hash?
 # additional devices?
 
