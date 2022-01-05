@@ -1,3 +1,4 @@
+import os
 from netmiko import ConnectHandler
 from time import localtime, strftime
 
@@ -19,6 +20,25 @@ def askforpassword():
 def askforhostname():
     hostname = input('Please enter host name: ')
     return hostname
+
+
+def savedevicenames():
+    savedevicename = True
+    print('Type and enter each host name.\n\
+Type "exit" when finished.')
+    with open('devicenames', 'w') as newfile:
+        while savedevicename is True:
+            totalhost = input('Host name: ')
+            if totalhost == 'exit':
+                savedevicename = False
+                newfile.close()
+            else:
+                newfile.write(totalhost + '\n')
+                continue
+
+
+def deletedevicenames():
+    os.remove('devicenames')
 
 
 # whid-co-dis-sw#
@@ -55,7 +75,7 @@ commands = [
 
 username = askforusername()
 password = askforpassword()
-host = askforhostname()
+savedevicenames()
 
 
 device = {
@@ -70,6 +90,7 @@ device = {
 connectdevice = sshconnect(**device)
 runcommands(commands, connectdevice)
 disconnectdevice = sshdisconnect(connectdevice)
+deletedevicenames()
 
 
 # make a directory - os.mkdir()? to upload multiple files?
