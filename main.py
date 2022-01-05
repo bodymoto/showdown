@@ -1,21 +1,21 @@
 from netmiko import ConnectHandler
 from time import strftime, localtime
 
-TIME = strftime('%m.%d@%I;%M%p', localtime())
+TIME = strftime('%m.%d@%I.%M%p', localtime())  # format 01.05@03.16PM
 
 
 def requestusername():
-    username = input('Please enter username:')
+    username = input('Please enter username: ')
     return username
 
 
 def requestpassword():
-    password = input('Please enter password:')
+    password = input('Please enter password: ')
     return password
 
 
-def requesthostname():
-    host = input('Enter a host name:')
+def requesthost():
+    host = input('Enter a host name: ')
     return host
 
 
@@ -47,7 +47,6 @@ def runcommands(commands, connectdevice):
         for command in commands:
             result = connectdevice.send_command(command)
             newfile.write(result)
-    newfile.close()
 
 
 def sshdisconnect(connectdevice):
@@ -61,14 +60,14 @@ commands = [
 ]
 
 
-username, password, host = requestusername(), requestpassword(), requesthostname()
+username, password, host = requestusername(), requestpassword(), requesthost()
 device = createdevicedictionary(host, username, password)
 connectdevice = sshconnect(device)
 runcommands(commands, connectdevice)
 sshdisconnect(connectdevice)
 
 
-#######################################################################
+# NOTES #############################################################
 # make a directory - os.mkdir()? to upload multiple files?
 # learn/apply encryption for the file? use hash?
 # additional devices?
@@ -80,19 +79,19 @@ sshdisconnect(connectdevice)
 # user=admin
 # pass=admin
 
-config = {}
-with open('config.txt', 'r') as f:
-    lines = f.readlines()
-    for line in lines:
-        key, value = line.split("=")
-        value = value.replace('\n', '')
-        config[key] = value
-        print(f'Added {key} {value}')
-
-with open('config.txt', 'w') as f:
-    for key, value in config.items():
-        l = f'{key}={value}\n'
-        f.write(l)
+# config = {}
+# with open('config.txt', 'r') as f:
+#     lines = f.readlines()
+#     for line in lines:
+#         key, value = line.split("=")
+#         value = value.replace('\n', '')
+#         config[key] = value
+#         print(f'Added {key} {value}')
+#
+# with open('config.txt', 'w') as f:
+#     for key, value in config.items():
+#         l = f'{key}={value}\n'
+#         f.write(l)
 
 # list of required installs for a program
 # python3 -m pip install requirements.txt
