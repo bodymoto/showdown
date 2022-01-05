@@ -4,19 +4,18 @@ from time import strftime, localtime
 TIME = strftime('%m.%d@%I.%M%p', localtime())  # format 01.05@03.16PM
 
 
+def requesthost():
+    host = input('Enter a host name: ')
+    return host
+
 def requestusername():
-    username = input('Please enter username: ')
+    username = input('Enter your username: ')
     return username
 
 
 def requestpassword():
-    password = input('Please enter password: ')
+    password = input('Enter your password: ')
     return password
-
-
-def requesthost():
-    host = input('Enter a host name: ')
-    return host
 
 
 def createdevicedictionary(host, username, password):
@@ -42,7 +41,7 @@ def sshconnect(device):
     return connectdevice
 
 
-def runcommands(commands, connectdevice):
+def runcommands(connectdevice, commands):
     with open(f'{TIME}', 'w') as newfile:
         for command in commands:
             result = connectdevice.send_command(command)
@@ -60,10 +59,10 @@ commands = [
 ]
 
 
-username, password, host = requestusername(), requestpassword(), requesthost()
+host, username, password = requesthost(), requestusername(), requestpassword()
 device = createdevicedictionary(host, username, password)
 connectdevice = sshconnect(device)
-runcommands(commands, connectdevice)
+runcommands(connectdevice, commands)
 sshdisconnect(connectdevice)
 
 
