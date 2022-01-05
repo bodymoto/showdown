@@ -1,5 +1,8 @@
 from netmiko import ConnectHandler
+from time import localtime, strftime
 
+
+TIME = strftime('%m.%d.%I%M%p', localtime())
 
 # receive login creds
 def askforusername():
@@ -18,6 +21,13 @@ def askforhostname():
     return hostname
 
 
+# whid-co-dis-sw#
+# whid-co-acc-sw#
+# whid-co-acc-rsw#
+# whid-co-wlc-#
+# whid-fc-agg-r#
+
+
 def sshconnect(**device):
     # make a connection
     connectdevice = ConnectHandler(**device)
@@ -25,7 +35,7 @@ def sshconnect(**device):
 
 
 def runcommands(commands, connectdevice):
-    with open('{}'.format(host), 'w') as newfile:
+    with open(f'{TIME}', 'w') as newfile:
         for command in commands:
             result = connectdevice.send_command(command)
             newfile.write(result)
@@ -66,3 +76,28 @@ disconnectdevice = sshdisconnect(connectdevice)
 # learn/apply encryption for the file? use hash?
 # additional devices?
 
+#######################################################################
+
+# config.txt
+# mode=development
+# host=127.0.0.1
+# port=22
+# user=admin
+# pass=admin
+
+config = {}
+with open('config.txt', 'r') as f:
+    lines = f.readlines()
+    for line in lines:
+        key, value = line.split("=")
+        value = value.replace('\n', '')
+        config[key] = value
+        print(f'Added {key} {value}')
+
+with open('config.txt', 'w') as f:
+    for key, value in config.items():
+        l = f'{key}={value}\n'
+        f.write(l)
+
+# list of required installs for a program
+# python3 -m pip install requirements.txt
