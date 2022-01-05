@@ -5,39 +5,35 @@ from time import localtime, strftime
 
 TIME = strftime('%m.%d.%I%M%p', localtime())
 
-# receive login creds
-def askforusername():
+
+def requestusername():
     username = input('Please enter username: ')
     return username
 
 
-def askforpassword():
+def requestpassword():
     password = input('Please enter passphrase: ')
     return password
 
 
-# ask for device
-def askforhostname():
-    hostname = input('Please enter host name: ')
-    return hostname
-
-
-def savedevicenames():
-    savedevicename = True
+def createdevicefile(username, password):
     print('Type and enter each host name.\n\
 Type "exit" when finished.')
-    with open('devicenames', 'w') as newfile:
-        while savedevicename is True:
-            totalhost = input('Host name: ')
-            if totalhost == 'exit':
-                savedevicename = False
-                newfile.close()
+    with open('devicenames', 'w') as devicefile:
+        while True:
+            host = input('Host name: ')
+            if host != 'exit':
+                newline = f'device_type: cisco_ios\n\
+host: {host}\n\
+username: {username}\n\
+password: {password}'
+                devicefile.write(newline + '\n')
             else:
-                newfile.write(totalhost + '\n')
-                continue
+                devicefile.close()
+                break
 
 
-def deletedevicenames():
+def deletedevicefile():
     os.remove('devicenames')
 
 
@@ -73,24 +69,16 @@ commands = [
 ]
 
 
-username = askforusername()
-password = askforpassword()
-savedevicenames()
+username, password = requestusername(), requestpassword()
+createdevicefile(username, password)
 
-
-device = {
-    'device_type': 'cisco_ios',  # use device type 'juniper' for juniper equipment
-    'host': host,
-    'username': username,
-    'password': password,
-    # 'port': defaults to port '22' but may be specified
-}
-
-
+#  pending review  ########################
 connectdevice = sshconnect(**device)
 runcommands(commands, connectdevice)
 disconnectdevice = sshdisconnect(connectdevice)
-deletedevicenames()
+##########################################
+
+deletedevicefile()
 
 
 # make a directory - os.mkdir()? to upload multiple files?
