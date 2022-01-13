@@ -5,8 +5,9 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="showdown.ssh",
-    version="0.0.3",
+    version="0.0.4",
     author="Boshimoto",
+    license="MIT License",
     author_email="author@example.com",
     description="A tool to automate local network health checks",
     long_description=long_description,

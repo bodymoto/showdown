@@ -11,20 +11,23 @@ A tool to automate local network health checks on Cisco iOS devices.
 + When finished, enter 'y'
 
 ##Requires Python 3.6+
+
 ###WINDOWS 10
 
 ###Installation:
 
-pip install showdown.ssh
+* pip install showdown.ssh
 
 ###View install directory:
 
-pip show showdown.ssh
+* pip show showdown.ssh
 
 ###Launch the app:
+
 ####*(navigate to directory)*
 
-python3 main.py
+* python3 main.py
 
 ###################################################
-https://pypi.org/project/showdown.ssh/
+
+* https://pypi.org/project/showdown.ssh/
