@@ -88,3 +88,6 @@ def main():
     username, password = sessionsetup()
     issuecommands(username, password)
     additionalhosts(username, password)
+
+
+main()

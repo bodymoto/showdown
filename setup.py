@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="showdown.ssh",
-    version="0.0.8",
+    version="0.0.9",
     author="Boshimoto",
     license="MIT License",
     author_email="author@example.com",
@@ -22,8 +22,16 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     packages=setuptools.find_packages(include=['showdown']),
-    python_requires=">=3.6",
+    python_requires=">=3.8",
     install_requires=[
-        'netmiko',
+        "netmiko>=3.4.0",
+        "setuptools>=60.5.0",
+        "paramiko>=2.7.2",
+        "scp>=0.13.6",
+        "tenacity",
+        "textfsm>=1.1.2",
+        "ntc-templates>=2.1.0",
+        "pyserial",
+        "importlib_resources ; python_version<'3.8'",
     ],
 )

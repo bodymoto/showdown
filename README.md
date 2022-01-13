@@ -10,9 +10,10 @@ A tool to automate local network health checks on Cisco iOS devices.
 + You will then be prompted to enter additional FQDN, to repeat the above using the original username/password entered at the start of session
 + When finished, enter 'y'
 
-##Requires Python v3.6
+##Requires
+>Python 3.8
 
-###WINDOWS 10
+>Windows 10
 
 ##Install:
 
