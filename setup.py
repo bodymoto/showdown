@@ -7,7 +7,7 @@ setuptools.setup(
     name="showdown.ssh",
     version="0.1.0",
     author="Boshimoto",
-    license="MIT License",
+    license="MIT",
     author_email="author@example.com",
     description="A tool to automate local network health checks",
     long_description=long_description,
