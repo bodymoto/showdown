@@ -27,8 +27,8 @@ A tool to automate local network health checks on Cisco iOS devices.
 **Launch the app:**
 
 1. navigate to directory 
-2. navigate to /showdown.ssh
->python3 main.py
+2. navigate to /showdown.ssh/showdown
+>python showdown.py
 
 ##Uninstall:
 
