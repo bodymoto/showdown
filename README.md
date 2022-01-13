@@ -10,24 +10,28 @@ A tool to automate local network health checks on Cisco iOS devices.
 + You will then be prompted to enter additional FQDN, to repeat the above using the original username/password entered at the start of session
 + When finished, enter 'y'
 
-##Requires Python 3.6+
+##Requires Python v3.6
 
 ###WINDOWS 10
 
-###Installation:
+##Install:
 
-* pip install showdown.ssh
+>pip install showdown.ssh
 
-###View install directory:
+##Run:
+**View install directory:**
 
-* pip show showdown.ssh
+>pip show showdown.ssh
 
-###Launch the app:
+**Launch the app:**
 
-####*(navigate to directory)*
+1. navigate to directory 
+2. navigate to /showdown.ssh
+>python3 main.py
 
-* python3 main.py
+##Uninstall:
 
-###################################################
+>pip uninstall -y showdown.ssh
+___
 
-* https://pypi.org/project/showdown.ssh/
+`https://pypi.org/project/showdown.ssh/`
