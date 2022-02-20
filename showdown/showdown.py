@@ -2,22 +2,22 @@ import os
 from netmiko import ConnectHandler
 
 
-def requesthost():
+def requestHost():
     host = input('Enter a host name: ')
     return host
 
 
-def requestusername():
+def requestUsername():
     username = input('Enter your username: ')
     return username
 
 
-def requestpassword():
+def requestPassword():
     password = input('Enter your password: ')
     return password
 
 
-def createdevicedictionary(host, username, password):  # used with ConnectHandler()
+def createDeviceDictionary(host, username, password):  # used with ConnectHandler()
     device = {
         'device_type': 'cisco_ios',
         'host': host,
@@ -27,12 +27,12 @@ def createdevicedictionary(host, username, password):  # used with ConnectHandle
     return device
 
 
-def sshconnect(device):  # ssh to host
-    connectdevice = ConnectHandler(**device)
-    return connectdevice
+def sshConnect(device):  # ssh to host
+    connectDevice = ConnectHandler(**device)
+    return connectDevice
 
 
-def mycommands():  # input device, spit out commands for device
+def myCommands():  # input device, spit out commands for device
     commands = [
         'show ssh',
         'show ver',
@@ -40,54 +40,54 @@ def mycommands():  # input device, spit out commands for device
     return commands
 
 
-def createdirectory():  # create a folder on desktop to store output
+def createDirectory():  # create a folder on desktop to store output
     try:
         os.mkdir(os.path.expanduser('~/Desktop/Network Checks/'))
     except FileExistsError:
         pass
 
 
-def runcommands(host, connectdevice, commands):  # runs commands and saves in a file
+def runCommands(host, connectDevice, commands):  # runs commands and saves in a file
     path = os.path.expanduser('~/Desktop/Network Checks/')
     with open(path + host + '.txt', 'w') as newfile:
         for command in commands:
-            result = connectdevice.send_command(command)
+            result = connectDevice.send_command(command)
             newfile.write(result)
 
 
-def sshdisconnect(connectdevice):
-    connectdevice.disconnect()
+def sshDisconnect(connectDevice):
+    connectDevice.disconnect()
 
 
-def sessionsetup():  # data that wont change during session
-    username, password = requestusername(), requestpassword()
-    createdirectory()
+def sessionSetup():  # data that wont change during session
+    username, password = requestUsername(), requestPassword()
+    createDirectory()
     return username, password
 
 
-def issuecommands(username, password):  # ssh to host, run commands
-    host = requesthost()
-    device = createdevicedictionary(host, username, password)
-    connectdevice = sshconnect(device)
-    commands = mycommands()  # input device
-    runcommands(host, connectdevice, commands)
-    sshdisconnect(connectdevice)
+def issueCommands(username, password):  # ssh to host, run commands
+    host = requestHost()
+    device = createDeviceDictionary(host, username, password)
+    connectDevice = sshConnect(device)
+    commands = myCommands()  # input device
+    runCommands(host, connectDevice, commands)
+    sshDisconnect(connectDevice)
 
 
-def additionalhosts(username, password):  # ask for additional host, repeat if applicable
+def additionalHosts(username, password):  # ask for additional host, repeat if applicable
     while True:
         print('Any additional hosts?')
         confirm = input('Enter "y" to continue: ')
         if confirm == 'y':
-            issuecommands(username, password)
+            issueCommands(username, password)
         else:
             break
 
 
 def main():
-    username, password = sessionsetup()
-    issuecommands(username, password)
-    additionalhosts(username, password)
+    username, password = sessionSetup()
+    issueCommands(username, password)
+    additionalHosts(username, password)
 
 
 main()
