@@ -7,8 +7,8 @@ A tool to automate local network health checks on Cisco iOS devices.
 + Execute each show command *(NOT in enable)*
 + Defaults are; 'show ssh' + 'show ver'
 + The command output is then saved to the folder on your local desktop
-+ You will then be prompted to enter additional FQDN, to repeat the above using the original username/password entered at the start of session
-+ When finished, enter 'y'
++ You will then be prompted to enter 'y' to repeat the process using the original username/password entered at the start of session
++ Otherwise, the program will terminate
 
 ##Requires
 >Python 3.8
