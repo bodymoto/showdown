@@ -19,8 +19,6 @@ ___
 
 >pip install showdown.ssh
 
-**Run:**
-
 **View install directory:**
 
 >pip show showdown.ssh
