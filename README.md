@@ -1,7 +1,7 @@
 **Python SSH Command Line Tool**
 ___
 
-*"This GitHub repository project is a Python-based internal tool that was developed to automate work conducted before and after any system or network-related project work. It was designed with the intention to help ensure the integrity of the network remained while within the expected downtime window.* 
+*"This GitHub repository project is a Python-based internal tool that was developed to automate work conducted before and after any system or network-related project work, specific to a job role at Amazon. It was designed with the intention to help ensure the integrity of the network remained while within the expected downtime window.* 
 
 *This tool is designed for automating the process of logging into multiple switches and running predetermined commands. It prompts the user for login credentials, followed by a list of switch host names. The output is saved in a new folder on the user's desktop with the switch host name as the file name. The tool will prompt the user to repeat the process for any additional switches, or terminate if none remain.*
 
