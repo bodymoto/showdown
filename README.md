@@ -1,13 +1,9 @@
 **Python SSH Command Line Tool**
 ___
 
-*"This GitHub repository project is a Python-based internal tool that was developed to automate work conducted before and after any system or network-related project work, specific to a job role at Amazon. It was designed with the intention to help ensure the integrity of the network remained while within the expected downtime window.* 
+Developed to automate work conducted specific to network infrastructure work, the tool automates the process of taking a *system snapshot* before work has began with a *system snapshot* taken after work has completed. This snapshot includes logging into network switches, running a set of commands, and saving the command output for documentation and later, verifiability.
 
-*This tool is designed for automating the process of logging into multiple switches and running predetermined commands. It prompts the user for login credentials, followed by a list of switch host names. The output is saved in a new folder on the user's desktop with the switch host name as the file name. The tool will prompt the user to repeat the process for any additional switches, or terminate if none remain.*
-
-*This tool was specifically developed for use in the IT industry and was used in a previously held position to streamline and automate work processes."*
-
-<sub>This description was written by GPT (Generative Pre-training Transformer) model created by OpenAI. No specific version number has been provided at this time. ChatGPT Jan 9th, 2023 release.</sub>
+Showdown prompts the user for login credentials, and switch host names. A folder is then created on the users Desktop and the tool SSH's into each switch and runs a set of commands predetermined within the codebase. The output of each command is saved to a SWITCHHOSTNAMEHERE.txt file placed within the desktop folder. The user is then prompted to either repeat the process, asking for additional switch host names, or to terminate the session.
 ___
 
 **Requirements**
