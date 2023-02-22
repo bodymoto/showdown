@@ -4,6 +4,8 @@ ___
 Showdown was developed to automate steps during network infrastructure work within the domain of IT. The tool automates the process of taking a network *snapshot* before work has began with another *snapshot* taken after work has completed. This snapshot includes logging into network switches, running a set of commands, and saving the command output for documentation and later, verifiability.
 
 Showdown prompts the user for login credentials, and switch host names. A folder is then created on the users Desktop and the tool SSH's into each switch and runs a set of commands predetermined within the codebase. The output of each command is saved to a SWITCHHOSTNAMEHERE.txt file placed within the desktop folder. The user is then prompted to either repeat the process, asking for additional switch host names, or to terminate the session.
+
+The name Showdown was inspired by the fact many useful commands within a Cisco switch began with the verbose *show*.
 ___
 
 **Requirements**
