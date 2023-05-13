@@ -1,5 +1,4 @@
 # **Python SSH CLI Tool**
-___
 
 Showdown was developed to automate steps during network infrastructure work within the domain of IT. The tool automates the process of taking a network *snapshot* before work has began with another *snapshot* taken after work has completed. This snapshot includes logging into network switches, running a set of commands, and saving the command output for documentation and later, verifiability.
 
