@@ -8,8 +8,8 @@ My first original progam.<br/>
 ___
 **RAN WITH:**
 ```Python 3.8```
-```Windows 10```<br/>
-*May not work on different or newer versions of OS listed here.*
+```Windows 10 (version undocumented)```<br/>
+*May not work on versions released post-May 2022*
 
 **INSTALL:**
 ```pip install showdown.ssh```
