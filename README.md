@@ -9,7 +9,7 @@ ___
 **RAN WITH:**
 ```Python 3.8```
 ```Windows 10 (version undocumented)```<br/>
-*May not work on versions released post-May 2022*
+*May not work on OS versions released post-May 2022*
 
 **INSTALL:**
 ```pip install showdown.ssh```
