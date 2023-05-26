@@ -1,6 +1,6 @@
 # **Python SSH CLI Tool**
 
-Showdown was developed to automate steps during network downtime.<br/>
+Showdown was developed to automate steps during network downtime. (During my time at Amazon - no propietary info exists in this repo)<br/>
 It takes a system *snapshot* before and after the downtime window.<br/>
 Showdown logs into each network switch, runs a set of commands, and saves the output to a text file on the Desktop.<br/>
 It was a convient tool to have.<br/>
