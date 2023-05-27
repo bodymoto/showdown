@@ -1,26 +1,27 @@
-# **Python SSH CLI Tool**
-
-Showdown was developed to automate steps during network downtime. (During my time at Amazon - no propietary info exists in this repo)<br/>
-It takes a system *snapshot* before and after the downtime window.<br/>
-Showdown logs into each network switch, runs a set of commands, and saves the output to a text file on the Desktop.<br/>
-It was a convient tool to have.<br/>
-My first original progam.<br/>
+Introducing Showdown, a Python SSH CLI created to capture system snapshots before and after downtime periods.<br/>
+Created during my tenure at Amazon (rest assured, no proprietary information exists in this repository)<br/>
+Showdown logs into each network switch, runs predefined commands, and saves the output to text files on the Desktop.<br/>
+It became a convenient and practical solution for streamlining network operations.<br/>
+This project holds a special place as my first original program.<br/>
 ___
-**RAN WITH:**
+**SYSTEM REQUIREMENTS:**
+
 ```Python 3.8```
 ```Windows 10 (version undocumented)```<br/>
-*May not work on OS versions released post-May 2022*
 
-**INSTALL:**
+*(Note: Compatibility with OS versions released after May 2022 is not guaranteed)*<br/>
+Please ensure that you meet these requirements before running the program.
+
+**(1) INSTALL IT:**
 ```pip install showdown.ssh```
 
-**FIND INSTALL:**
+**(2) NAVIGATE TO IT:**
 ```pip show showdown.ssh```
 
-**LAUNCH:**
+**(3) RUN IT:**
 ```python showdown.py```
 
-**UNINSTALL:**
+**(4) UNINSTALL IT:**
 ```pip uninstall -y showdown.ssh```
 ___
 
