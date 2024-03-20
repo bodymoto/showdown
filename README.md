@@ -2,7 +2,6 @@ Showdown is a Python program, created with the purpose of automating on-site pro
 
 *Install:*
 ```pip install showdown.ssh```<br/>
-<br/>
 *Location:*
 ```pip show showdown.ssh```
 
