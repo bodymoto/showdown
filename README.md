@@ -1,12 +1,8 @@
-Showdown is a Python program, created to automate project tasks & to take snapshots of a facilities network state - before & after - work is conducted during windows of scheduled downtime to verify/compare operational health.<br/><br/>
-Developed & used during my tenure at Amazon while working as an IT Engineer.<br/><br/>
-When deployed, Showdown will SSH into each instructed network switch (Cisco models X9300 & X9500), execute a set of predefined commands required for the current project work & save the output to a text file created on the Desktop.<br/>
-It was a convenient solution for automating basic project tasks.<br/>
-<br/>
-Saved to PIP for user convenience.<br/>
+Showdown is a Python program, created with the purpose of automating on-site project tasks related to the maintenance and growth of an Amazon Fulfillment Center. By connecting via SSH to any number of Cisco X9000 series switches and running a series of commands, I was able to take a network-wide snapshot of facilities network state - before & after - scheduled project work, to compare and verify network stability.<br/>
 
 *Install:*
 ```pip install showdown.ssh```<br/>
+<br/>
 *Location:*
 ```pip show showdown.ssh```
 
